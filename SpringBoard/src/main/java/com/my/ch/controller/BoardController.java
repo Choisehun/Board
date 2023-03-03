@@ -1,9 +1,13 @@
 package com.my.ch.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.my.ch.dto.PostDto;
 import com.my.ch.service.BoardService;
@@ -21,16 +25,25 @@ public class BoardController {
 	
 	
 	@GetMapping("writepage")
-	public void wrtie() {
+	public void moveWrtie() {
 		log.info("move:- wirtePage -");
 	}
 	
 	@PostMapping("write")
-	public void wrtie(PostDto postsdto) {
-		log.info("start:- COntroller write -");
-		service.wrtie(postsdto);
-		log.info("end:- COntroller write -");
+	public void creatWrtie(PostDto postsdto) {
+		log.info("start:- Controller write -");
+		service.write(postsdto);
+		log.info("end:- Controller write -");
 	}
+	
+	@GetMapping("getList")
+	public void boardList(@RequestParam("category") int category, Model model){
+		log.info("start:- Controller List -" );
+		model.addAttribute("list",service.getList());
+		log.info("end:- Controller List -" );
 		
+	}
+	
+	
 	
 }

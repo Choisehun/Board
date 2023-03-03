@@ -1,5 +1,7 @@
 package com.my.ch.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,14 +17,21 @@ public class BoardService implements OrderService {
 
 	@Setter(onMethod_ = @Autowired)
 	private Mapper mapper;
-	
-	@Override
-	public void wrtie(PostDto postdto) {
-		log.info("service write");
-		mapper.wrtie(postdto);
 
+	@Override
+	public void write(PostDto postdto) {
+		log.info("service write");
+		mapper.write(postdto);
 		
 	}
+
+	@Override
+	public List<PostDto> getList() {
+		log.info("service list");
+		return mapper.getList();
+	}
+	
+	
 	
 
 }

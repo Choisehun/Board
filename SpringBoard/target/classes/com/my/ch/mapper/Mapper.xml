@@ -4,10 +4,12 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 	<mapper namespace="com.my.ch.mapper.Mapper">
-		<update id="write">
-			insert into post (user_id,title,content,created_at,views) values ({userid},{title},{content},{now()},{views}); 
-		</update>
+		<insert id="write">
+			insert into post (user_id,title,content,created_at,category_id) values (#{userid},#{title},#{content},now(),#{category}); 
+		</insert>
 		
-		
+		<select id="getList" resultType="com.my.ch.dto.PostDto">
+			SELECT * FROM post WHERE category_id = 1 ORDER BY post_num DESC;
+		</select>
 		</mapper>
 		
