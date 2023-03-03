@@ -4,9 +4,9 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 	<mapper namespace="com.my.ch.mapper.Mapper">
-		<select id="getList" resultType="com.my.ch.dto.Dto">
-		select * from post		
-		</select>
+		<update id="write">
+			insert into post (user_id,title,content,created_at,views) values ({userid},{title},{content},{now()},{views}); 
+		</update>
 		
 		
 		</mapper>

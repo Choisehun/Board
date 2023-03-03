@@ -24,12 +24,12 @@
 	<!-- 내가 추가한거 -->
 	<!-- mybatis - mapper 설정 -->
 	  <mybatis-spring:scan
-	 base-package="com.my.ch.Mapper" /><!--   패키지명에 맞게 수정 -->
+	 base-package="com.my.ch.mapper" /><!--   패키지명에 맞게 수정 -->
 	
 		
 	<!-- 내가 추가한거 -->
 
-	<context:component-scan base-package="com.peisia.hello.service">
+	<context:component-scan base-package="com.my.ch.service">
 	</context:component-scan>
 
 	
