@@ -26,11 +26,26 @@ public class BoardService implements OrderService {
 	}
 
 	@Override
-	public List<PostDto> getList() {
+	public List<PostDto> getList(long category_id) {
 		log.info("service list");
-		return mapper.getList();
+		return mapper.getList(category_id);
 	}
-	
+
+	@Override
+	public PostDto getRead(long post_num) {
+		log.info("service read");
+		return mapper.getRead(post_num);
+		
+	}
+
+	@Override
+	public void getDelete(long post_num) {
+		log.info("service delete");
+		mapper.getDelete(post_num);
+		
+	}
+
+
 	
 	
 

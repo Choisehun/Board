@@ -13,7 +13,7 @@ import lombok.extern.log4j.Log4j;
 
 @Log4j
 public class jdbctest {
-	String database = "springblog";
+	String database = "springboard";
 	String url = "jdbc:mysql://localhost:3306/"+database;
 	String id = "root";
 	String pw = "0000";

@@ -9,7 +9,15 @@
 		</insert>
 		
 		<select id="getList" resultType="com.my.ch.dto.PostDto">
-			SELECT * FROM post WHERE category_id = 1 ORDER BY post_num DESC;
+			SELECT * FROM post WHERE category_id = (#{category_id}) ORDER BY post_num DESC;
 		</select>
+		
+		<select id="getRead" resultType="com.my.ch.dto.PostDto">
+			SELECT * from post WHERE post_num = (#{post_num})
+		</select>
+		
+		<update id="getDelete">
+			DELETE from post WHERE post_num = (#{post_num})
+		</update>
 		</mapper>
 		

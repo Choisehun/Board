@@ -6,6 +6,8 @@ import com.my.ch.dto.PostDto;
 
 public interface OrderService {
 	public void write(PostDto postdto);
-	List<PostDto> getList();
-
+	List<PostDto> getList(long category_id);
+	 PostDto getRead(long post_num);
+	 
+	 public void getDelete(long post_num);
 }

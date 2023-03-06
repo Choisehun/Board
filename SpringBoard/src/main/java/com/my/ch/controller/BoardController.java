@@ -24,25 +24,53 @@ public class BoardController {
 	private BoardService service;
 	
 	
-	@GetMapping("writepage")
+	@GetMapping("/writepage")
 	public void moveWrtie() {
 		log.info("move:- wirtePage -");
 	}
 	
-	@PostMapping("write")
+	@PostMapping("/write")
 	public void creatWrtie(PostDto postsdto) {
 		log.info("start:- Controller write -");
 		service.write(postsdto);
 		log.info("end:- Controller write -");
 	}
 	
-	@GetMapping("getList")
-	public void boardList(@RequestParam("category") int category, Model model){
+	@GetMapping("/getList")
+	public void boardList(@RequestParam("category_id") int category, Model model){
 		log.info("start:- Controller List -" );
-		model.addAttribute("list",service.getList());
+		
+			if(category==1) {
+				model.addAttribute("list",service.getList(category));
+				log.info("category1");
+			}else if(category==2) {
+				model.addAttribute("list",service.getList(category));
+				log.info("category2");
+			}else if(category==3) {
+				model.addAttribute("list",service.getList(category));
+				log.info("category3");
+			}
+	
 		log.info("end:- Controller List -" );
 		
 	}
+	
+	@GetMapping("/getRead")
+	public void boardRead(@RequestParam("post_num") long num,Model model) {
+		log.info("start:- Controller Read -" );
+		model.addAttribute("read",service.getRead(num));
+		log.info("end:- Controller Read -" );
+	}
+	
+	@GetMapping("/getDelete")
+	public String boardDelete(@RequestParam("post_num") long num,@RequestParam("category_id")long category) {
+		log.info("start:- Controller del -" );
+		service.getDelete(num);
+		log.info("end:- Controller del -" );
+		return "redirect:/board/getList?category_id="+category;
+	}
+	
+	
 	
 	
 	
