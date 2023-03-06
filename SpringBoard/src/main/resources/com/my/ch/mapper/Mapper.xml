@@ -19,5 +19,9 @@
 		<update id="getDelete">
 			DELETE from post WHERE post_num = (#{post_num})
 		</update>
+		
+		<update id="modify">
+		UPDATE post SET title=#{title}, content=#{content} WHERE post_num=#{post_num};
+		</update>
 		</mapper>
 		

@@ -19,6 +19,7 @@
 		String id = read.getUser_id();
 		String data = read.getData();
 	%>
+	<form action="/board/modify" method="post">
 	<table class="top-table" >
 	<thead>
 	<tr>
@@ -26,12 +27,13 @@
 
 	</tr>
 	</thead>
-	
 	</table>
 	<table class="body-table" >
+	
 	<thead style=border-bottom:groove>
 	<tr>
-	<td colspan=2 style="border-bottom:groove;"><%=title %></td>
+	<td colspan=2 style="border-bottom:groove;"><input name="title" placeholder="제목 입력" style="width:640px;border-style:none"></td>
+	
 	</tr>
 	
 	<tr>
@@ -41,7 +43,7 @@
 	
 	<tbody>
 	<tr>
-	<td colspan=2 style="border-bottom:groove;height:270px"><%=content %></td>
+	<td colspan=2 style="border-bottom:groove;height:270px"><input name="content" placeholder="내용 입력" style="width:640px;height:250px;border-style:none;"></td>
 	</tr>
 	</tbody>
 	
@@ -50,21 +52,18 @@
 	<td></td>
 	
 	<td class="foot-button">
-	<form action="/board/modifypage" method="get">
+	
 	<input type="hidden" name="post_num" value=<%=no %>>
 	<input type="submit" value="수정">
-	</form>
+
 	
-	<form action="/board/getDelete" method="get">
-	<input type="hidden" name="post_num" value=<%=no %>>
-	<input type="submit" value="삭제">
-	</form>
 	
 	</td>
 	</tr>
 	</tfoot>
 
 	</table>
+		</form>
 	
 
 </body>

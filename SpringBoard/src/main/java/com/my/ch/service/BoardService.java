@@ -45,6 +45,13 @@ public class BoardService implements OrderService {
 		
 	}
 
+	@Override
+	public void modify(PostDto postdto) {
+	log.info("service modify");
+	mapper.modify(postdto);
+		
+	}
+
 
 	
 	

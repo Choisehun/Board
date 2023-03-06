@@ -10,4 +10,5 @@ public interface OrderService {
 	 PostDto getRead(long post_num);
 	 
 	 public void getDelete(long post_num);
+	 public void modify(PostDto postdto);
 }

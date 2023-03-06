@@ -29,6 +29,8 @@ public class BoardController {
 		log.info("move:- wirtePage -");
 	}
 	
+	
+	
 	@PostMapping("/write")
 	public void creatWrtie(PostDto postsdto) {
 		log.info("start:- Controller write -");
@@ -55,7 +57,7 @@ public class BoardController {
 		
 	}
 	
-	@GetMapping("/getRead")
+	@GetMapping({"/getRead","/modifypage"})
 	public void boardRead(@RequestParam("post_num") long num,Model model) {
 		log.info("start:- Controller Read -" );
 		model.addAttribute("read",service.getRead(num));
@@ -68,6 +70,13 @@ public class BoardController {
 		service.getDelete(num);
 		log.info("end:- Controller del -" );
 		return "redirect:/board/getList?category_id="+category;
+	}
+	
+	@PostMapping("/modify")
+	public void modify(@RequestParam("post_num") long num,PostDto postdto) {
+		log.info("start:- Controller modify -" );
+		service.modify(postdto);
+		log.info("end:- Controller modify -" );
 	}
 	
 	
