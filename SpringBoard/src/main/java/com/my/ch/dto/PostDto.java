@@ -18,8 +18,8 @@ public class PostDto {
 	public String user_id;
 	public String title;
 	public String content;
-	public String data;
-//	public int views;
+	public String created_at;
+	public Long views;
 	public Long category_id;
 	
 	

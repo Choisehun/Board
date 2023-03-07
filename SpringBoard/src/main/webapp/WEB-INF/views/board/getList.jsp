@@ -27,6 +27,7 @@
                             <th>제목</th>
                             <th>아이디</th>
                             <th>시간</th>
+                            <th>조회수</th>
                         </tr>
                     </thead>
 				<%
@@ -35,15 +36,32 @@
 					String userid = list.get(i).getUser_id();
 					String title  = list.get(i).getTitle();
 					String content = list.get(i).getContent();
-					String data = list.get(i).getData();
+					String data = list.get(i).getCreated_at();
+					Long view = list.get(i).getViews();
 
 					%>
                         <tr>
                             <td><%=no %></td>
-                            <td><a href="javascript:void(0)" onclick="window.open('getRead?post_num=<%=no%>', 'popup', 'width=800,height=600')"> <%=title %> </a></td>
+                            <td>
+  <a href="javascript:void(0)" onclick="window.open('getRead?post_num=<%=no%>', 'popup', 'width=800,height=600, top=50%, left=50%, margin-top=-300px, margin-left=-400px')"> <%=title %> </a>
+							</td>
                             <td><%=userid %></td>
                             <td><%=data %></td>
+                            <td><%=view %></td>
                         </tr> 
+                        <tfoot>
+                        <tr>
+                        <td>
+                          <div>
+                   <form>
+                   <input name="search" placeholder="검색" style="200px">
+                   <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                   </form>
+                 	</div>
+                        
+                        </td>
+                        </tr>
+                        </tfoot>
 					<% 
 				}
 			%>
@@ -55,12 +73,7 @@
 
 			
 		   
-                 <div>
-                   <form>
-                   <input name="search" placeholder="검색" style="200px">
-                   <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-                   </form>
-                 </div>
+               
 			
 	
 

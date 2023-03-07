@@ -17,7 +17,7 @@
 		String title = read.getTitle();
 		long no = read.getPost_num();
 		String id = read.getUser_id();
-		String data = read.getData();
+		String data = read.getCreated_at();
 	%>
 	<form action="/board/modify" method="post">
 	<table class="top-table" >
@@ -32,7 +32,7 @@
 	
 	<thead style=border-bottom:groove>
 	<tr>
-	<td colspan=2 style="border-bottom:groove;"><input name="title" placeholder="제목 입력" style="width:640px;border-style:none"></td>
+	<td colspan=2 style="border-bottom:groove;"><input name="title" placeholder="제목 수정" style="width:640px;border-style:none"></td>
 	
 	</tr>
 	
@@ -43,7 +43,7 @@
 	
 	<tbody>
 	<tr>
-	<td colspan=2 style="border-bottom:groove;height:270px"><input name="content" placeholder="내용 입력" style="width:640px;height:250px;border-style:none;"></td>
+	<td colspan=2 style="border-bottom:groove;height:270px"><input name="content" placeholder="내용 수정" style="width:640px;height:250px;border-style:none;"></td>
 	</tr>
 	</tbody>
 	
@@ -54,7 +54,7 @@
 	<td class="foot-button">
 	
 	<input type="hidden" name="post_num" value=<%=no %>>
-	<input type="submit" value="수정">
+	<input type="submit" value="확인">
 
 	
 	

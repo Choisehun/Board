@@ -17,7 +17,7 @@
 		String title = read.getTitle();
 		long no = read.getPost_num();
 		String id = read.getUser_id();
-		String data = read.getData();
+		String data = read.getCreated_at();
 	%>
 	<table class="top-table" >
 	<thead>
