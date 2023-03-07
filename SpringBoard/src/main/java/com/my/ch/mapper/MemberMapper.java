@@ -1,5 +1,8 @@
 package com.my.ch.mapper;
 
-public interface MemberMapper {
+import com.my.ch.dto.MemberDto;
 
+public interface MemberMapper {
+		public void join(MemberDto memberdto);
+			
 }

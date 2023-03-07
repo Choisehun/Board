@@ -2,6 +2,7 @@ package com.my.ch.service;
 
 import java.util.List;
 
+import com.my.ch.dto.MemberDto;
 import com.my.ch.dto.PostDto;
 
 public interface OrderService {
@@ -11,4 +12,8 @@ public interface OrderService {
 	 
 	 public void getDelete(long post_num);
 	 public void modify(PostDto postdto);
+	 
+	 
+	 /**member*/
+	 public void join(MemberDto memberdto);
 }

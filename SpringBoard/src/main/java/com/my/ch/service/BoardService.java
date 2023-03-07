@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.my.ch.dto.MemberDto;
 import com.my.ch.dto.PostDto;
 import com.my.ch.mapper.Mapper;
+import com.my.ch.mapper.MemberMapper;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -17,6 +19,9 @@ public class BoardService implements OrderService {
 
 	@Setter(onMethod_ = @Autowired)
 	private Mapper mapper;
+	
+	@Setter(onMethod_ = @Autowired)
+	private MemberMapper membermapper;
 
 	@Override
 	public void write(PostDto postdto) {
@@ -50,6 +55,14 @@ public class BoardService implements OrderService {
 	log.info("service modify");
 	mapper.modify(postdto);
 		
+	}
+	
+	/**member dto*/
+
+	@Override
+	public void join(MemberDto memberdto) {
+		log.info("Service member join");
+		membermapper.join(memberdto);
 	}
 
 

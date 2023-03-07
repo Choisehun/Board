@@ -27,21 +27,21 @@ $(document).ready(function() {
 
 <section class="get-in-touch">
    <h1 class="title">회원가입</h1>
-   <form class="contact-form row">
+   <form class="contact-form row" action="join" method="POST">
       <div class="form-field col-lg-6">
-         <input id="userid" class="input-text js-input" type="text" required>
-         <label class="label" for="name" class="has-value">아이디</label>
+         <input id="userid" class="input-text js-input" type="text" name="user_id" required>
+         <label class="label" for="name" class="has-value" >아이디</label>
       </div>
        <div class="form-field col-lg-6 ">
-         <input id="password" class="input-text js-input" type="password" required>
+         <input id="password" class="input-text js-input" type="password" name="password" required>
          <label class="label" for="phone" class="has-value">비밀번호</label>
       </div>
         <div class="form-field col-lg-6 ">
-         <input id="name" class="input-text js-input" type="text" required>
+         <input id="name" class="input-text js-input" type="text" name="name" required>
          <label class="label" for="company" class="has-value">이름</label>
       </div>
       <div class="form-field col-lg-6 ">
-         <input id="email" class="input-text js-input" type="email" required>
+         <input id="email" class="input-text js-input" type="email" name="email" required>
          <label class="label" for="email" class="has-value">E-mail</label>
       </div>
       

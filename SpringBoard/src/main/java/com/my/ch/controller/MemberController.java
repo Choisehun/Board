@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.my.ch.dto.MemberDto;
 import com.my.ch.dto.PostDto;
 import com.my.ch.service.BoardService;
 
@@ -26,6 +27,14 @@ public class MemberController {
 	@GetMapping("/joinpage")
 	public void movejoin() {
 		log.info("move : controoler joinpage");
+	}
+	
+	@PostMapping("/join")
+	public String addjoin(MemberDto memberdto) {
+		log.info("start : controller addjoin");
+		service.join(memberdto);
+		log.info("end : controller addjoin");
+		return "redirect: ../index";
 	}
 	
 	
