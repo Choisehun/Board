@@ -49,7 +49,11 @@
                             <td><%=data %></td>
                             <td><%=view %></td>
                         </tr> 
-                        <tfoot>
+                       
+					<% 
+				}
+			%>
+			 <tfoot>
                         <tr>
                         <td>
                           <div>
@@ -62,10 +66,6 @@
                         </td>
                         </tr>
                         </tfoot>
-					<% 
-				}
-			%>
-			
                 </table>   
 		</div>
 	</div>

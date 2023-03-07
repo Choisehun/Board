@@ -2,12 +2,15 @@ package com.my.ch.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.my.ch.dto.MemberDto;
 import com.my.ch.dto.PostDto;
@@ -29,13 +32,48 @@ public class MemberController {
 		log.info("move : controoler joinpage");
 	}
 	
+	@GetMapping("/loginpage")
+	public void movelogin() {
+		log.info("move : controoler loginpage");
+	}
+	
 	@PostMapping("/join")
 	public String addjoin(MemberDto memberdto) {
 		log.info("start : controller addjoin");
 		service.join(memberdto);
 		log.info("end : controller addjoin");
-		return "redirect: ../index";
+		return "redirect: ../";
 	}
+	
+	@GetMapping("/login")
+	@ResponseBody
+	public String login(@RequestParam("user_id") String userid,HttpSession session) {
+		log.info(service.login(userid)); 
+		int count = service.login(userid);
+		
+		
+		if(count==1) {
+			session.setAttribute("userid",userid); 
+			String script = "<script>window.opener.location.reload(); window.close();</script>";
+			return script;
+		}else {
+			String message = "id check.";
+	        String script = "<script>alert('" + message + "'); history.back();</script>";
+	        return script;
+		}
+		
+		
+	}
+	
+	@PostMapping("/logout")
+	public String logout(HttpSession session) {
+		log.info("logout");
+		session.invalidate();
+		return "redirect: ../";
+	
+		
+	}
+	
 	
 	
 	

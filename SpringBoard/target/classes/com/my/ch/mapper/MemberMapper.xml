@@ -5,8 +5,12 @@
 	
 	<mapper namespace="com.my.ch.mapper.MemberMapper">
 		<insert id="join">
-			insert into user (user_id,password,name,email) values (#{user_id},#{password},#{name},#{email});
+			insert into user (user_id,password,name,email) values (#{user_id},#{password},#{name},#{email})
 		</insert>
+		
+		<select id="login" resultType="int">
+			select count(*) from user where user_id=(#{user_id});
+		</select>
 		
 		</mapper>
 		

@@ -1,5 +1,8 @@
 package com.my.ch.dto;
 
+import lombok.Data;
+
+@Data
 public class MemberDto {
 	
 	/**

@@ -65,6 +65,17 @@ public class BoardService implements OrderService {
 		membermapper.join(memberdto);
 	}
 
+	@Override
+	public int login(String user_id) {
+		log.info(user_id);
+		return membermapper.login(user_id);
+	}
+
+
+
+	
+
+	
 
 	
 	
